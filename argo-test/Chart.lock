@@ -1,0 +1,6 @@
+dependencies:
+- name: cp-helm-charts
+  repository: https://confluentinc.github.io/cp-helm-charts/
+  version: 0.6.1
+digest: sha256:f56368716dd88039e8ed708efc7e99c7b6f9df17bbbc3c7bd4ca19eb2bbbd308
+generated: "2021-08-25T15:52:40.343558+01:00"

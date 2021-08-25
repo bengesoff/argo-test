@@ -3,4 +3,9 @@ name: argo-test
 description: A Helm chart for installing Kafka on Kubernetes
 type: application
 version: 0.1.0
-appVersion: latest
+appVersion: 1.0.0
+
+dependencies:
+  - name: cp-helm-charts
+    version: 0.6.1
+    repository: https://confluentinc.github.io/cp-helm-charts/
