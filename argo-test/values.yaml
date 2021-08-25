@@ -3,3 +3,8 @@ cp-helm-charts:
     enabled: false
   cp-kafka:
     image: confluentinc/cp-kafka
+    persistence:
+      enabled: false
+  cp-zookeeper:
+    persistence:
+      enabled: false
