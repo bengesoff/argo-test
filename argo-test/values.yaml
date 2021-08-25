@@ -2,7 +2,6 @@ cp-helm-charts:
   cp-control-center:
     enabled: false
   cp-kafka:
-    image: confluentinc/cp-kafka
     persistence:
       enabled: false
   cp-zookeeper:
