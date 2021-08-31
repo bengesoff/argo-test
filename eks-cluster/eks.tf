@@ -12,27 +12,14 @@ module "eks" {
 
   vpc_id = module.vpc.vpc_id
 
-  # Set up fargate to run the pods
-  fargate_pod_execution_role_name = "${local.cluster_name}-execution-role"
-  fargate_profiles = {
-    default = {
-      name = "default"
-      selectors = [
-        {
-          namespace = "argotest"
-        },
-        {
-          namespace = "kube-system"
-          labels = {
-            k8s-app = "kube-dns"
-          }
-        },
-        {
-          namespace = "default"
-        }
-      ]
+  worker_groups = [
+    {
+      name          = "worker-group-1"
+      instance_type = "t3.medium"
+      asg_max_size  = 5
+      asg_desired_capacity = 3
     }
-  }
+  ]
 
   # Use `aws eks get-token` instead of `aws-iam-authenticator` in the generated kubeconfig
   kubeconfig_aws_authenticator_command = "aws"
