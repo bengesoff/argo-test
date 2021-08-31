@@ -1,12 +1,17 @@
 # Infrastructure
 
-This directory contains two things: a Terraform environment for configuring Amazon EKS, and some scripts for configuring ArgoCD in the resulting cluster.
-The Terraform environment should be deployed first.
-Then the generated `kubeconfig` file should be exported as an environment variable, for example:
+The `terraform` directory provisions an Amazon EKS cluster and installs ArgoCD onto it, in the `argocd` namespace.
+A script in `scripts` then retrieves the ArgoCD admin credentials to log in and install other Helm charts to the cluster.
+A `kubeconfig` file is generated and should be exported as an environment variable to use `kubectl` commands, for example:
 
 ```
-export KUBECONFIG=$(pwd)/kubeconfig_argo-test-naseic48rye
+cd infra/terraform
+terraform init
+terraform apply
+export KUBECONFIG=$(pwd)/$(terraform output -raw kubeconfig)
+kubectl get all -n argocd
+cd ..
+./scripts/get-admin-ui-credentials.sh
 ```
 
-Finally the `set-up-argo-eks.sh` script can be run to install ArgoCD to the `argocd` namespace.
 The UI can then be accessed using the given credentials and be used to install the other Helm charts in this repo.
