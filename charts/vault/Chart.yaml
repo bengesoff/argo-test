@@ -8,3 +8,6 @@ dependencies:
   - name: vault
     version: "0.15.0"
     repository: "https://helm.releases.hashicorp.com"
+  - name: cert-manager
+    version: "v1.5.3"
+    repository: "https://charts.jetstack.io"
