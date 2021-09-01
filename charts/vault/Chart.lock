@@ -1,0 +1,6 @@
+dependencies:
+- name: vault
+  repository: https://helm.releases.hashicorp.com
+  version: 0.15.0
+digest: sha256:1c2978286e3cd058cba528e14c9a9be0e81a02ea2b6ba6dc5b67dd5bc620c29d
+generated: "2021-08-31T16:18:42.814285+01:00"
