@@ -7,3 +7,8 @@ output "kubeconfig" {
   description = "The filename of the kubeconfig file generated for authenticating to the AWS EKS cluster"
   value       = module.eks.kubeconfig_filename
 }
+
+output "kafka_brokers" {
+  description = "List of Kafka broker host:port pairs"
+  value       = aws_msk_cluster.example.bootstrap_brokers_tls
+}
