@@ -4,6 +4,7 @@ metadata:
   name: {{ include "process-service.fullname" . }}
 data:
   application.properties: |
-    spring.kafka.bootstrap-servers=kafka-cp-kafka-headless:9092
+    spring.kafka.bootstrap-servers={{ .Values.kafka.bootstrapServers }}
     spring.kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
     server.port=8080
+    topic.name={{ .Values.kafka.topicName }}
