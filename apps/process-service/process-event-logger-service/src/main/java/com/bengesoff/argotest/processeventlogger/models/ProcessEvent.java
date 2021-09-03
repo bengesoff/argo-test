@@ -1,11 +1,17 @@
 package com.bengesoff.argotest.processeventlogger.models;
 
-public class ProcessEvent {
-    private final String processCode;
+import javax.validation.constraints.NotBlank;
 
+public class ProcessEvent {
+    @NotBlank(message = "serialNumber is required")
+    private final String serialNumber;
+    @NotBlank(message = "processCode is required")
+    private final String processCode;
+    @NotBlank(message = "processOutcome is required")
     private final String processOutcome;
 
-    public ProcessEvent(String processCode, String processOutcome) {
+    public ProcessEvent(String serialNumber, String processCode, String processOutcome) {
+        this.serialNumber = serialNumber;
         this.processCode = processCode;
         this.processOutcome = processOutcome;
     }
@@ -16,5 +22,9 @@ public class ProcessEvent {
 
     public String getProcessOutcome() {
         return processOutcome;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
     }
 }

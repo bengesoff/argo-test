@@ -4,6 +4,7 @@ import com.bengesoff.argotest.processeventlogger.models.ProcessEvent;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import javax.validation.Valid;
 
 @RestController
 public class ProcessEventLoggerServiceController {
@@ -15,7 +16,7 @@ public class ProcessEventLoggerServiceController {
     }
 
     @PostMapping("/process")
-    public String recordProcess(@RequestBody ProcessEvent event) {
+    public String recordProcess(@Valid @RequestBody ProcessEvent event) {
         this.kafkaSender.sendEvent(event);
         return "ok";
     }

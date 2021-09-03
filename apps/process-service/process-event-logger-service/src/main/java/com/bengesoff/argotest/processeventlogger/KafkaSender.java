@@ -19,6 +19,6 @@ public class KafkaSender {
     }
 
     public ListenableFuture<SendResult<String, ProcessEvent>> sendEvent(ProcessEvent event) {
-        return this.kafkaTemplate.send(topicName, event.getProcessCode(), event);
+        return this.kafkaTemplate.send(topicName, event.getSerialNumber(), event);
     }
 }
