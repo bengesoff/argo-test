@@ -17,3 +17,4 @@ service:
 kafka:
   bootstrapServers: localhost:9092
   topicName: process-events
+  securityProtocol: PLAINTEXT

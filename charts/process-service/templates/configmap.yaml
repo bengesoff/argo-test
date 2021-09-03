@@ -6,5 +6,6 @@ data:
   application.properties: |
     spring.kafka.bootstrap-servers={{ .Values.kafka.bootstrapServers }}
     spring.kafka.producer.value-serializer=org.springframework.kafka.support.serializer.JsonSerializer
+    spring.kafka.security.protocol={{ .Values.kafka.securityProtocol }}
     server.port=8080
     topic.name={{ .Values.kafka.topicName }}
